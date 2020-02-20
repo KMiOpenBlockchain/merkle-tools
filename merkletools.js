@@ -14,6 +14,7 @@ var sha3512 = require('js-sha3').sha3_512
 var sha3384 = require('js-sha3').sha3_384
 var sha3256 = require('js-sha3').sha3_256
 var sha3224 = require('js-sha3').sha3_224
+var keccak_256 = require('js-sha3').keccak_256
 var crypto = require('crypto')
 
 var MerkleTools = function (treeOptions) {
@@ -39,6 +40,8 @@ var MerkleTools = function (treeOptions) {
         return Buffer.from(sha3384.array(value))
       case 'SHA3-512':
         return Buffer.from(sha3512.array(value))
+      case 'KECCAC-256':
+        return Buffer.from(keccak_256.array(value))
       default:
         return crypto.createHash(hashType).update(value).digest()
     }
