@@ -40,7 +40,7 @@ var MerkleTools = function (treeOptions) {
         return Buffer.from(sha3384.array(value))
       case 'SHA3-512':
         return Buffer.from(sha3512.array(value))
-      case 'KECCAC-256':
+      case 'KECCAK-256':
         return Buffer.from(keccak_256.array(value))
       default:
         return crypto.createHash(hashType).update(value).digest()
