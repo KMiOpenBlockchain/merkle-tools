@@ -133,6 +133,12 @@ var MerkleTools = function (treeOptions) {
     return tree.levels[0][0]
   }
 
+  // Returns the full tree
+  this.getMerkleTree = function () {
+    if (!tree.isReady || tree.levels.length === 0) return null
+    return tree
+  }
+
   // Returns the proof for a leaf at the given index as an array of merkle siblings in hex format
   this.getProof = function (index, asBinary) {
     if (!tree.isReady) return null
